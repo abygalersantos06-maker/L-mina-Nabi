@@ -1,0 +1,482 @@
+/* ========================
+   ABOUT US
+   ======================== */
+
+/* Color palette definition */
+:root {
+  --burgundy: #622828;
+  --cream: #f1ece8;
+  --white: #ffffff;
+  --mauve: #855756;
+  --blush: #cebcb9;
+  --peach: #debcb0;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typography and body styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--burgundy);
+  line-height: 1.7;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================
+   NAVIGATION COMPONENTS
+   ======================== */
+
+/* Main navigation bar */
+.navbar {
+  background-color: var(--white);
+  border-bottom: 2px solid var(--blush);
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navigation container */
+.nav-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Center logo styling */
+.logo img {
+  height: 60px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Shopping cart icon */
+.cart-icon-left {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cart-icon-left:hover {
+  color: var(--mauve);
+}
+
+/* Main navigation links */
+nav {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--burgundy);
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--mauve);
+}
+
+/* ========================
+   CONTENT SECTIONS
+   ======================== */
+
+/* Hero section with overlay */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background-color: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* Hero content overlay */
+.intro {
+  position: relative;
+  z-index: 2;
+  background-color: var(--white);
+  color: var(--burgundy);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.intro h2 span {
+  font-weight: 700;
+}
+
+.intro p {
+  font-size: 1rem;
+  color: var(--burgundy);
+  line-height: 1.6;
+}
+
+/* About section styling */
+.about-us {
+  text-align: center;
+  padding: 4rem 10%;
+  color: var(--burgundy);
+}
+
+.about-us h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.about-us img {
+  display: block;
+  margin: 0 auto 2rem auto;
+  max-width: 350px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-us p {
+  max-width: 800px;
+  margin: 0 auto 1.2rem auto;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+/* Vision section */
+.vision, .mission {
+  padding: 4rem 12%;
+}
+
+.vision {
+  background-color: var(--cream);
+  text-align: center;
+}
+
+.vision h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.vision p {
+  line-height: 1.8;
+  font-size: 0.95rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Mission section */
+.mission {
+  background-color: var(--white);
+  color: var(--burgundy);
+}
+
+.mission h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.mission ul {
+  list-style-type: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission li {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* ========================
+   FORM COMPONENTS
+   ======================== */
+
+/* Feedback form section */
+.feedback {
+  background-color: var(--cream);
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form container styling */
+.feedback form {
+  background: linear-gradient(to bottom, #f8eae8, #f4d8d4);
+  border: 1px solid #d4b1ae;
+  border-radius: 8px;
+  padding: 2.5rem 3rem;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.feedback h2 {
+  text-align: center;
+  color: var(--burgundy);
+  margin-bottom: 1.5rem;
+}
+
+/* Form labels and text */
+.feedback label, 
+.feedback p {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--burgundy);
+}
+
+/* Form input fields */
+.feedback input[type="text"],
+.feedback input[type="email"],
+.feedback textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  border: 1px solid #d9b8b5;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Radio button group */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.feedback textarea {
+  resize: none;
+}
+
+/* Form submit button */
+.feedback button {
+  display: block;
+  background-color: var(--burgundy);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 4px;
+  margin: 1.5rem auto 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.feedback button:hover {
+  background-color: var(--mauve);
+}
+
+/* ========================
+   INTERACTIVE ELEMENTS
+   ======================== */
+
+/* Thank you popup modal */
+.thank-you {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(98, 40, 40, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup content box */
+.thank-you-box {
+  background-color: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+  animation: popup 0.4s ease;
+}
+
+/* Popup animation */
+@keyframes popup {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.thank-you-box h3 {
+  color: var(--burgundy);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.thank-you-box p {
+  color: var(--burgundy);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.thank-you-box button {
+  background-color: var(--burgundy);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.thank-you-box button:hover {
+  background-color: var(--mauve);
+}
+
+/* ========================
+   MOBILE NAVIGATION
+   ======================== */
+
+/* Mobile menu toggle */
+.hamburger-menu {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  color: var(--mauve);
+}
+
+/* ========================
+   RESPONSIVE DESIGN
+   ======================== */
+
+/* MOBILE STYLES (768px and below) */
+@media (max-width: 768px) {
+  /* Show mobile menu toggle */
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* Mobile navigation menu */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--burgundy); 
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-top: 1px solid var(--blush);
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    color: var(--cream); 
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: var(--mauve); 
+    color: var(--white); 
+  }
+}
+
+/* Mobile menu animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+
+footer {
+  background-color: var(--burgundy);
+  color: var(--cream);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

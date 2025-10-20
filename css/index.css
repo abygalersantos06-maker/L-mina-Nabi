@@ -1,0 +1,859 @@
+/* ========================
+   HOME PAGE
+   ======================== */
+
+/* Color palette definition */
+:root {
+  --burgundy: #622828;
+  --cream: #f1ece8;
+  --white: #fff;
+  --mauve: #855756;
+  --blush: #cebcb9;
+  --peach: #debcb0;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typography and body styles */
+body {
+  font-family: 'Poppins', 'Times New Roman', Arial, sans-serif;
+  background: var(--white);
+  color: var(--burgundy);
+  line-height: 1.7;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================
+   NAVIGATION COMPONENTS
+   ======================== */
+
+/* Main navigation bar */
+.navbar {
+  background: var(--white);
+  border-bottom: 2px solid var(--blush);
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navigation container */
+.nav-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* Center logo styling */
+.logo img {
+  height: 60px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Main navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--burgundy);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--mauve); }
+
+/* Navigation buttons container */
+.nav-buttons {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ========================
+   INTERACTIVE ELEMENTS & BUTTONS
+   ======================== */
+
+/* Outline button style (Sign Up) */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--burgundy);
+  color: var(--burgundy);
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: var(--peach);
+  border-color: var(--peach);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Filled button style (Sign In) */
+.btn-filled {
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 9px;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-filled:hover {
+  background: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* Add to Cart button */
+.add-to-cart {
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 9px;
+  padding: 0.8rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1rem 0;
+  font-size: 1rem;
+  width: 200px;
+  text-align: center;
+}
+
+.add-to-cart:hover {
+  background: var(--mauve);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(133, 87, 86, 0.3);
+}
+
+/* Shopping cart icon */
+.cart-icon-left {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  transition: color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.cart-icon-left:hover { 
+  color: var(--mauve); 
+  transform: scale(1.1);
+}
+
+/* ========================
+   MOBILE NAVIGATION SYSTEM
+   ======================== */
+
+/* Mobile menu toggle - hidden by default */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  color: var(--burgundy);
+}
+
+/* Hamburger icon transitions */
+.hamburger i {
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active i {
+  transform: rotate(90deg);
+}
+
+/* Mobile navigation menu */
+.mobile-nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--burgundy);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links.active {
+  display: flex;
+  animation: slideDown 0.3s ease;
+}
+
+.mobile-nav-links li {
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links li:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-links a {
+  display: block;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: var(--burgundy);
+}
+
+.mobile-nav-links a:hover {
+  background-color: var(--mauve);
+}
+
+/* Auth buttons in mobile menu */
+.mobile-nav-links .auth-buttons-mobile {
+  border-bottom: none;
+  padding: 10px 20px;
+}
+
+.mobile-nav-links .auth-buttons-mobile a {
+  padding: 12px 24px;
+  margin: 5px auto;
+  max-width: 200px;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.mobile-nav-links .btn-outline {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.mobile-nav-links .btn-outline:hover {
+  background: var(--white);
+  color: var(--burgundy);
+}
+
+.mobile-nav-links .btn-filled {
+  background: var(--white);
+  color: var(--burgundy);
+}
+
+.mobile-nav-links .btn-filled:hover {
+  background: var(--cream);
+  color: var(--burgundy);
+}
+
+/* Close button for mobile menu */
+.menu-close {
+  display: none;
+}
+
+/* Body scroll prevention when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Mobile menu animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+   CONTENT LAYOUTS & SECTIONS
+   ======================== */
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+/* Content sections */
+.intro, .ready-made, .finishing-touches {
+  text-align: center;
+  padding: 3rem 10%;
+}
+
+.intro p:first-child, .finishing-touches p:first-child {
+    text-align: center !important;
+    margin-bottom: 0.5rem;
+}
+
+.finishing-touches p, .intro p, .ready-made p {
+  text-align: justify;
+}
+
+.ready-made, .finishing-touches { background: var(--cream); }
+
+/* Three cards layout */
+.three-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+
+/* Individual card component */
+.card {
+  width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(98, 40, 40, 0.2);
+}
+
+/* Image placeholder styling */
+.img-placeholder {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Share experience section */
+.share-experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 10%;
+  gap: 2rem;
+}
+
+.share-experience .img-placeholder {
+  width: 40%;
+  height: 350px;
+  background: #ccc;
+}
+
+.share-experience .text { width: 50%; }
+
+/* ========================
+   PRODUCT DISPLAY COMPONENTS
+   ======================== */
+
+/* Product grid container */
+.product-grid {
+  text-align: center;
+  padding: 4rem 8%;
+}
+
+.product-grid h4 {
+  font-size: 1.6rem;
+  color: var(--burgundy);
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Product grid layout */
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Individual product card */
+.product {
+  background: var(--cream);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(98, 40, 40, 0.15);
+  width: 280px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(98, 40, 40, 0.25);
+}
+
+/* Product image container */
+.img-box {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.product:hover img { 
+  transform: scale(1.05); 
+}
+
+.product p { padding: 1rem; }
+.product span { color: var(--mauve); font-weight: 600; }
+
+.product a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Product action buttons */
+.product-actions {
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Creator/About section */
+.creator {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 10%;
+  gap: 3rem;
+}
+
+.creator-img { width: 40%; text-align: center; }
+.creator-img img { width: 100%; height: 100%; object-fit: cover; }
+.creator-right { width: 50%; display: flex; flex-direction: column; gap: 2rem; }
+
+.creator-text h3, .contact h3 {
+  font-size: 1.8rem;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
+
+.contact a {
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact a:hover { text-decoration: underline; color: var(--mauve); }
+
+/* Footer section */
+.footer {
+  background: var(--burgundy);
+  color: var(--cream);
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer a { text-decoration: none; color: white; }
+
+/* ========================
+   AUDIO PLAYER COMPONENT
+   ======================== */
+
+.audio-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  backdrop-filter: blur(10px);
+  border: 2px solid #622828;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.2);
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+}
+
+.play-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #622828;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button:hover {
+  background: #855756;
+  transform: scale(1.1);
+}
+
+.pause-icon { 
+  display: none; 
+}
+
+.playing .play-icon { 
+  display: none; 
+}
+
+.playing .pause-icon { 
+  display: inline; 
+}
+
+.audio-info {
+  font-size: 14px;
+  color: #622828;
+}
+
+.audio-progress {
+  width: 80px;
+  height: 4px;
+  background: #f3e8ff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  background: #622828;
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* ========================
+   RESPONSIVE DESIGN
+   ======================== */
+
+/* MOBILE STYLES (768px and below) */
+@media (max-width: 768px) {
+  .navbar { 
+    padding: 10px 15px;
+    position: relative;
+  }
+  
+  .nav-container { 
+    padding: 0.3rem 0.5rem; 
+    min-height: 60px; 
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  /* Mobile menu toggle */
+  .hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--burgundy);
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: static;
+    order: 3;
+    margin-left: auto;
+  }
+  
+  .hamburger:hover {
+    background-color: rgba(98, 40, 40, 0.1);
+  }
+  
+  .cart-icon-left {
+    position: static;
+    order: 1;
+    margin-right: auto;
+    font-size: 1.3rem;
+    top: auto;
+    left: auto;
+  }
+  
+  .logo {
+    order: 2;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .logo img { 
+    height: 45px; 
+    max-width: 160px; 
+    display: inline-block;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  nav, .nav-buttons { display: none !important; }
+  
+  .mobile-nav-links a { 
+    padding: 14px 15px; 
+  }
+  
+  /* Hero section adjustments */
+  .hero { height: auto; }
+  
+  /* Content section adjustments */
+  .intro { 
+    padding: 1.5rem 1rem; 
+    text-align: center !important;
+  }
+  .intro p:first-child {
+    text-align: center !important;
+    margin-bottom: 0.5rem;
+  }
+  .intro h2 { 
+    font-size: 1.6rem; 
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .intro p { 
+    font-size: 0.9rem; 
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+  
+  /* Stack cards vertically on mobile */
+  .three-cards { 
+    flex-direction: column; 
+    padding: 1.5rem 0.8rem; 
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .card { 
+    width: 100%; 
+    max-width: 350px;
+    margin: 0 auto;
+    
+  }
+
+  .img-placeholder { height: 300px; }
+  
+  /* Adjust share experience layout */
+  .share-experience { 
+    flex-direction: column; 
+    padding: 1.5rem 1rem; 
+    gap: 1rem;
+  }
+  .share-experience .img-placeholder { 
+    display: none;
+  }
+  .share-experience .text { 
+    width: 100%; 
+    text-align: center;
+  }
+  
+  .ready-made, .finishing-touches { 
+    padding: 1.5rem 1rem; 
+    text-align: center;
+  }
+  
+  /* Product grid adjustments */
+  .product-grid { padding: 1.5rem 0.8rem; }
+  .grid { 
+    gap: 1rem; 
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  .img-box { height: 180px; }
+  
+  .add-to-cart {
+    width: 180px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Creator section adjustments */
+  .creator { flex-direction: column; padding: 1.5rem 1rem; gap: 1.5rem; }
+  .creator-img, .creator-right { width: 100%; }
+  .creator-img { max-width: 300px; margin: 0 auto; }
+  .creator-text h3, .contact h3 { font-size: 1.5rem; text-align: center; }
+  
+  .footer { padding: 1rem; }
+  .audio-player { 
+    bottom: 12px; 
+    right: 12px; 
+    padding: 6px 12px; 
+    transform: scale(0.85); 
+  }
+}
+
+/* TABLET STYLES (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Horizontal card layout for tablet */
+  .three-cards {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    width: calc(50% - 1rem);
+    max-width: 300px;
+    margin: 0;
+  }
+  
+  .img-placeholder {
+    height: 320px;
+  }
+  
+  /* Ensure desktop navigation shows on tablet */
+  .hamburger, .mobile-nav-links { 
+    display: none !important; 
+  }
+  
+  nav, .nav-buttons { 
+    display: block !important; 
+  }
+}
+
+/* SMALL MOBILE STYLES (480px and below) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .cart-icon-left {
+    font-size: 1.2rem;
+    order: 1;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .hamburger {
+    font-size: 1.3rem;
+    padding: 6px;
+    order: 3;
+  }
+  
+  .mobile-nav-links a { 
+    padding: 12px 12px; 
+    font-size: 0.95rem; 
+  }
+  
+  /* Further size reductions for small screens */
+  .hero { height: 320px; }
+  .intro, .ready-made, .share-experience, .finishing-touches, .creator { padding: 1rem 0.8rem; }
+  .three-cards, .product-grid { padding: 1rem 0.5rem; }
+  
+  .card { max-width: 320px; }
+  
+  .add-to-cart {
+    width: 160px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* DESKTOP STYLES (1025px and above) */
+@media (min-width: 1025px) {
+  .hamburger, .mobile-nav-links { display: none !important; }
+  nav, .nav-buttons { display: block !important; }
+}
+
+/* TOUCH DEVICE OPTIMIZATIONS */
+@media (hover: none) and (pointer: coarse) {
+  .mobile-nav-links a {
+    padding: 20px 15px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hamburger {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .cart-icon-left {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
