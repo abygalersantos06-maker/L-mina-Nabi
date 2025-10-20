@@ -798,7 +798,7 @@ body.menu-open {
   }
 
   .collection img {
-    width: 90%; 
+    width: 80%; 
   }
 
   .collection img,
@@ -839,7 +839,7 @@ body.menu-open {
   }
 
   .textured-collection .collection img {
-    height: 300px;
+    height: 250px;
   }
 
   /* Categories Table Mobile */
@@ -1024,7 +1024,7 @@ body.menu-open {
 }
 
 /* TABLET STYLES (769px - 1024px) */
-@media (min-width: 766px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .navbar {
     padding: 12px 4%;
   }
@@ -1038,8 +1038,7 @@ body.menu-open {
   }
 
   .nav-links {
-    gap: 2rem;
-    margin-top: 8px;
+    display: flex !important;
   }
 
   .nav-links a {
@@ -1087,7 +1086,7 @@ body.menu-open {
   }
 
   .collection img {
-    width: 100%;
+    width: 80%;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
@@ -1217,7 +1216,7 @@ body.menu-open {
   }
 
   .collection img {
-    width: 100%;
+    width: 80%;
     height: auto;
     display: block;
     aspect-ratio: 1 / 1;
