@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Nabi | Product</title>
+  <link rel="stylesheet" href="css/invitation.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/Logo main.png">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-top">
+      <a href="cart.html" class="cart-icon-left">
+        <i class="fas fa-cart-plus"></i>
+      </a>
+
+      <div class="logo-center">
+        <a href="index.html" class="logo-link">
+          <img src="images/Logo main.png" alt="Lumina Nabi Logo">
+        </a>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="invitation.html">Invitation Cards</a></li>
+        <li><a href="envelopeandliners.html">Envelopes & Liners</a></li>
+        <li><a href="embellishment.html">Embellishments</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PRODUCT SECTION -->
+  <main class="product-page">
+    <div class="product-container">
+      <img src="" alt="Product Image" id="product-image">
+      <div class="product-details">
+        <h2 id="product-name"></h2>
+        <p class="price" id="product-price"></p>
+        <p class="description" id="product-description"></p>
+
+        <div class="form-group">
+          <label for="variant">Variant</label>
+          <select id="variant">
+            <option>Pink</option>
+            <option>Blue</option>
+            <option>Ivory</option>
+            <option>Burgundy</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <select id="quantity">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div class="button-group">
+          <button id="addToCartBtn" class="btn-filled">Add to Cart</button>
+          <button class="cancel-btn" onclick="window.history.back()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© Copyright 2025. All rights reserved. Created by Abygale Santos</p>
+    <p><a href="mailto:luminanabishop@gmail.com">luminanabi.com</a></p>
+  </footer>
+
+  <!-- JS FUNCTIONALITY -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu functionality
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      }
+
+      // Load product data
+      const product = JSON.parse(localStorage.getItem('product'));
+
+      if (product) {
+        console.log('Loaded product:', product);
+        document.getElementById('product-image').src = product.image.trim();
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-price').textContent = `₱ ${parseFloat(product.price).toFixed(2)}`;
+        document.getElementById('product-description').textContent = product.description;
+      } else {
+        document.querySelector('.product-details').innerHTML = "<p>Product not found. Please go back and select a product.</p>";
+      }
+
+      // Update cart count
+      const updateCartCount = () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+          cartCount.textContent = cart.length;
+        }
+      };
+
+      // Initialize cart count
+      updateCartCount();
+
+      // Add to Cart functionality
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      addToCartBtn.addEventListener('click', () => {
+        if (!product) {
+          alert("No product selected. Please go back and choose a product.");
+          return;
+        }
+
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const variant = document.getElementById('variant').value;
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if item already exists in cart
+        const existingItemIndex = cart.findIndex(item => 
+          item.name === product.name && item.variant === variant
+        );
+
+        if (existingItemIndex > -1) {
+          // Update quantity if item exists
+          cart[existingItemIndex].quantity += quantity;
+        } else {
+          // Add new item
+          cart.push({
+            ...product,
+            quantity,
+            variant
+          });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert("Item added to cart!");
+
+        // Update cart count
+        updateCartCount();
+      });
+
+      // Update cart count when storage changes
+      window.addEventListener('storage', updateCartCount);
+    });
+  </script>
+</body>
+</html>

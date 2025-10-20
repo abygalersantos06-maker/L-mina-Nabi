@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Nabi | Invitation Cards</title>
+  <link rel="stylesheet" href="css/invitation.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/Logo main.png">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-top">
+      <a href="cart.html" class="cart-icon-left">
+        <i class="fas fa-cart-plus"></i>
+      </a>
+
+      <div class="logo-center">
+        <a href="index.html" class="logo-link">
+          <img src="images/Logo main.png" alt="Lumina Nabi Logo">
+        </a>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="invitation.html">Invitation Cards</a></li>
+        <li><a href="envelopeandliners.html">Envelopes & Liners</a></li>
+        <li><a href="embellishment.html">Embellishments</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="images/invitations:silken.png" alt="Hero Banner" />
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <!-- Intro Section Centered on Banner -->
+    <div class="intro-centered">
+      <h2>Ready-made Invitation Cards Collections</h2>
+      <p>
+        Our ready-made collections offer invitation suites designed to impress from the very first glance. 
+        Each piece is crafted with care, combining refined design and quality materials to bring effortless 
+        elegance to your celebration. Simply choose the style that speaks to your heart, and let it set the 
+        tone for your unforgettable day.
+      </p>
+    </div>
+  </section>
+
+  <!-- Collection Grid -->
+  <section class="collection-grid">
+    <figure class="collections-figure">
+      <div class="collections-container">
+        <div class="collection">
+          <a href="ethereal.html">
+            <img src="images/ethereal petals.jpg" alt="Ethereal Petals">
+            <p><strong>Ethereal Petals</strong><br>Collection</p>
+          </a>
+        </div>
+
+        <div class="collection">
+          <a href="noctura.html">
+            <img src="images/NocturaCollect.png" alt="The Noctura">
+            <p><strong>The Noctura</strong><br>Collection</p>
+          </a>
+        </div>
+
+        <div class="collection">
+          <a href="Jardin.html">
+            <img src="images/jardinCollect.png" alt="The Jardin Lumière">
+            <p><strong>The Jardin Lumière</strong><br>Collection</p>
+          </a>
+        </div>
+
+        <div class="collection">
+          <a href="silken.html">
+            <img src="images/silkenCollect.png" alt="Silken Botanique">
+            <p><strong>Silken Botanique</strong><br>Collection</p>
+          </a>
+        </div>
+      </div>
+      <figcaption>
+        Explore our four signature invitation collections, each crafted to capture different aspects of romance and elegance. 
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience">
+    <div class="experience-content">
+      <div class="experience-img">
+        <img src="images/experienceNow.png" alt="Experience">
+      </div>
+
+      <div class="experience-text">
+        <p>ABOUT US</p>
+        <h3>Share Your Experience with Lúmina Nabi</h3>
+        <p>
+          At Lúmina Nabi, every story begins with you.
+          Your journey, your love, and your celebrations inspire everything we create. 
+          We pour artistry and heart into each design — and your experience helps shape 
+          the magic we continue to craft.
+        </p>
+        <p>
+          We'd love to hear how our creations became part of your special moments. 
+          Whether it was the first impression your invitation made, the joy of unwrapping 
+          our bespoke designs, or the way our craftsmanship complemented your theme — your 
+          story matters.
+        </p>
+        <p>
+          Your feedback doesn't just guide us; it illuminates our path forward. 
+          By sharing your thoughts, you help us grow, refine our craft, and continue spreading 
+          beauty, love, and light through every piece we make.
+        </p>
+        <p>
+          Take a moment to share your experience with us — and become part of the Lúmina Nabi 
+          story that celebrates timeless elegance, heartfelt connections, and the art of meaningful design.
+        </p>
+
+        <div class="center-cta">
+          <a href="about.html#feedback-section" class="btn-filled">SHARE NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="quote">
+    <p><em>"An invitation is not just the start of your wedding day—it is the first keepsake of your forever."</em></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© Copyright 2025. All rights reserved. Created by Abygale Santos</p>
+    <p><a href="mailto:luminanabishop@gmail.com">luminanabi.com</a></p>
+  </footer>
+
+  <script>
+  // Hamburger menu functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const body = document.body;
+
+    // Toggle menu on click
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isActive = navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      
+      if (isActive) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+        body.classList.add('menu-open');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        body.classList.remove('menu-open');
+      }
+    });
+
+    // Close menu when clicking on links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        body.classList.remove('menu-open');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = navLinks.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        body.classList.remove('menu-open');
+      }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        body.classList.remove('menu-open');
+      }
+    });
+
+    // Cart functionality
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cart-count").textContent = cart.length;
+    
+    console.log('Lumina Nabi Invitation Cards page loaded');
+  });
+</script>
+</body>
+</html>

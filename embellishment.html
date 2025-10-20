@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Nabi | Embellishments</title>
+  <link rel="stylesheet" href="css/invitation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/Logo main.png">
+</head>
+
+<body class="invite-page">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-top">
+      <a href="cart.html" class="cart-icon-left">
+        <i class="fas fa-cart-plus"></i>
+      </a>
+
+      <div class="logo-center">
+        <a href="index.html" class="logo-link">
+          <img src="images/Logo main.png" alt="Lumina Nabi Logo">
+        </a>
+      </div>
+        
+      <div class="nav-buttons">
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="invitation.html">Invitation Cards</a></li>
+        <li><a href="envelopeandliners.html">Envelopes & Liners</a></li>
+        <li><a href="embellishment.html">Embellishments</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="images/Embellishments.png" alt="Embellishments Banner">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Intro Section Centered on Banner -->
+    <div class="intro-centered">
+      <h2>Embellishments</h2>
+      <p>
+        Luxury lies in the details. Our <strong>belly bands and liners</strong> are designed to transform your wedding suite into a statement of refinement. Choose from handpicked textures, bold hues, and artful patterns that elevate your invitations from beautiful to unforgettable. Each pairing is crafted to frame your message with sophistication, ensuring your love story is delivered in style.
+      </p>
+    </div>
+  </section>
+
+  <!-- Belly Bands & Ribbons Section -->
+  <section class="collection-section">
+    <div class="collection-heading-full">
+      <h3>Belly Bands & Ribbons</h3>
+    </div>
+
+    <div class="collections-container">
+      <div class="collection">
+        <a href="product.html" 
+           data-name="Flower Belly Band" 
+           data-price="379" 
+           data-image="images/flower belly band.png" 
+           data-description="Delicate floral belly bands that add a romantic touch to your invitations.">
+          <img src="images/flower belly band.png" alt="Flower Belly Band">
+          <p><strong>Flower Belly Band</strong><br>₱ 379.00</p>
+        </a>
+      </div>
+
+      <div class="collection">
+        <a href="product.html" 
+           data-name="Velvet | Satin Band" 
+           data-price="379" 
+           data-image="images/velvet belly band.png" 
+           data-description="Luxurious velvet and satin bands in elegant colors for a sophisticated finish.">
+          <img src="images/velvet belly band.png" alt="Velvet Satin Band">
+          <p><strong>Velvet | Satin Band</strong><br>₱ 379.00</p>
+        </a>
+      </div>
+
+      <div class="collection">
+        <a href="product.html" 
+           data-name="Woven Ribbon" 
+           data-price="199" 
+           data-image="images/woven ribbon.png" 
+           data-description="Classic woven ribbons in various colors and bow styles.">
+          <img src="images/woven ribbon.png" alt="Woven Ribbon">
+          <p><strong>Woven Ribbon</strong><br>₱ 199.00</p>
+        </a>
+      </div>
+
+      <div class="collection">
+        <a href="product.html" 
+           data-name="Silk Ribbon" 
+           data-price="189" 
+           data-image="images/silk ribbon.png" 
+           data-description="Premium silk ribbons in a curated color palette for elegant finishing.">
+          <img src="images/silk ribbon.png" alt="Silk Ribbon">
+          <p><strong>Silk Ribbon</strong><br>₱ 189.00</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Figcaption for Belly Bands & Ribbons Section -->
+    <figure class="collections-figure">
+      <figcaption>
+        Complete your wedding suite with our premium belly bands and ribbons. Each piece is carefully selected to complement your invitation design, adding that perfect final touch of elegance and sophistication.
+      </figcaption>
+    </figure>
+  </section>
+
+  <footer class="footer">
+    <p>© Copyright 2025. All rights reserved. Created by Abygale Santos</p>
+    <p><a href="mailto:luminanabishop@gmail.com">luminanabi.com</a></p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      }
+
+      // Save product data on click
+      document.querySelectorAll('.collection a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          const productData = {
+            name: link.dataset.name,
+            price: link.dataset.price,
+            image: link.dataset.image.trim(),
+            description: link.dataset.description
+          };
+          localStorage.setItem('product', JSON.stringify(productData));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

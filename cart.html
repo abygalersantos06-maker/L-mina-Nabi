@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Nabi | Cart</title>
+  <link rel="stylesheet" href="css/cart.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/Logo main.png">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-top">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CART PAGE -->
+  <main class="cart-page">
+    <h1>Your Cart</h1>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-summary" id="cart-summary" style="display:none;">
+      <p id="shipping-msg"></p>
+      <h3>Total: ₱<span id="total-price">0</span></h3>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+
+    <div class="cart-actions">
+      <button class="back-btn" onclick="window.history.back()">← Back</button>
+      <button id="clear-cart">Clear Cart</button>
+    </div>
+  </main>
+
+  <!-- SCRIPT
+ -->
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cart-items");
+    const summary = document.getElementById("cart-summary");
+    const totalPrice = document.getElementById("total-price");
+    const msg = document.getElementById("shipping-msg");
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+    } else {
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+
+        container.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-info">
+              <h3>${item.name}</h3>
+              <p>₱${item.price} × ${item.quantity}</p>
+            </div>
+            <div class="cart-actions-right">
+              <div class="price">₱${(item.price * item.quantity).toFixed(2)}</div>
+              <button class="remove-btn" data-name="${item.name}">Remove</button>
+            </div>
+          </div>
+        `;
+      });
+
+      totalPrice.textContent = total.toFixed(2);
+      summary.style.display = "block";
+
+      if (total < 249) {
+        msg.textContent = `Buy ₱${(249 - total).toFixed(2)} more to enjoy Free Standard Shipping!`;
+      } else {
+        msg.textContent = "You qualify for Free Standard Shipping!";
+      }
+    }
+
+    // Remove individual item
+    document.addEventListener("click", e => {
+      if (e.target.classList.contains("remove-btn")) {
+        const name = e.target.dataset.name;
+        const newCart = cart.filter(item => item.name !== name);
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        location.reload();
+      }
+    });
+
+    // Clear all
+    document.getElementById("clear-cart").onclick = () => {
+      localStorage.removeItem("cart");
+      location.reload();
+    };
+
+    // Checkout → clear + home
+    document.querySelector(".checkout-btn").onclick = () => {
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    };
+  </script>
+</body>
+</html>

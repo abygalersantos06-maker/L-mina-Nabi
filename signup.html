@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | Lúmina Nabi</title>
+  <link rel="stylesheet" href="css/sign.css" />
+  <link rel="icon" type="image/png" href="images/Logo main.png">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html"><img src="images/Logo main.png" alt="Logo"></a>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="invitation.html">Invitation Cards</a></li>
+        <li><a href="envelopeandliners.html">Envelopes & Liners</a></li>
+        <li><a href="embellishment.html">Embellishments</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2 style="text-align:center; margin-top:30px;">Sign Up</h2>
+    <form id="signupForm" class="auth-form">
+      <div class="name-fields">
+        <div style="flex: 1;">
+          <label for="firstName">First Name*</label>
+          <input type="text" id="firstName" required>
+        </div>
+        <div style="flex: 1;">
+          <label for="lastName">Last Name*</label>
+          <input type="text" id="lastName" required>
+        </div>
+      </div>
+
+      <label for="email">Email*</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password*</label>
+      <input type="password" id="password" required>
+
+      <label for="confirmPassword">Confirm Password*</label>
+      <input type="password" id="confirmPassword" required>
+
+      <label for="phone">Phone Number*</label>
+      <input type="tel" id="phone" required>
+
+      <label class="checkbox-container">
+        <input type="checkbox" id="terms" required> Accept Terms and Conditions
+      </label>
+
+      <button type="submit">Confirm</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>© Copyright 2025. All rights reserved. Created by Abygale Santos</p>
+  </footer>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent page reload
+      window.location.href = "index.html"; // Redirect back to homepage
+    });
+  </script>
+</body>
+</html>
