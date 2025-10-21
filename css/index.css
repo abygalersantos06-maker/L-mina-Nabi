@@ -661,6 +661,10 @@ body.menu-open {
     max-width: 160px; 
     display: inline-block;
   }
+
+   .creator-img {
+    display: none;
+  }
   
   /* Hide desktop navigation on mobile */
   nav, .nav-buttons { display: none !important; }
