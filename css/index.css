@@ -669,6 +669,10 @@ body.menu-open {
   /* Hide desktop navigation on mobile */
   nav, .nav-buttons { display: none !important; }
   
+  /* Hide Meet the Creator heading and paragraph on mobile */
+  .creator-text h3, .creator-text p { 
+    display: none; 
+  }
   .mobile-nav-links a { 
     padding: 14px 15px; 
   }
@@ -752,6 +756,7 @@ body.menu-open {
   .creator-img, .creator-right { width: 100%; }
   .creator-img { max-width: 300px; margin: 0 auto; }
   .creator-text h3, .contact h3 { font-size: 1.5rem; text-align: center; }
+  .creator p, .contact p {text-align: justify;}
   
   .footer { padding: 1rem; }
   .audio-player { 
