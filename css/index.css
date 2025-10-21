@@ -509,6 +509,7 @@ body.menu-open {
   color: var(--burgundy);
   margin-bottom: 1rem;
 }
+.creator p, .contact p {text-align: justify;}
 
 .contact a {
   color: var(--burgundy);
