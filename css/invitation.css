@@ -340,6 +340,12 @@ html {
   margin: 0 auto;
 }
 
+.textured-grid .collection img {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
 /* Brand experience section */
 .experience {
   background-color: #f7f5f4;
@@ -831,11 +837,21 @@ body.menu-open {
   }
 
   /* Textured Collection Mobile */
-  .textured-collection .collection-grid,
-  .textured-grid {
+  .textured-collection .collection-grid {
     grid-template-columns: 1fr;
     max-width: 100%;
     padding: 2rem 1.5rem;
+  }
+
+  .textured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .textured-grid .collection img {
+    width: 100%;
   }
 
   .textured-collection .collection img {
@@ -1209,37 +1225,7 @@ body.menu-open {
     width: 70%;
     padding: 30px
   }
-
-  .collection {
-    width: 100%;
-    margin: 0;
-  }
-
-  .collection img {
-    width: 80%;
-    height: auto;
-    display: block;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-  }
-
-  .collections-figure {
-    margin: 0;
-    padding: 0;
-  }
-
-  .textured-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 2rem 4%;
-    max-width: 900px;
-  }
-
-  .textured-collection .collection img {
-    height: 350px;
-  }
 }
-
 
 /* LARGE DESKTOP (1200px and above) */
 @media (min-width: 1200px) {
