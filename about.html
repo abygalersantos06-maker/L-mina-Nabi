@@ -157,6 +157,7 @@
       const hamburger = document.getElementById('hamburgerMenu');
       const navLinks = document.getElementById('navLinks');
 
+
       // Toggle menu on click
       hamburger.addEventListener('click', function() {
         navLinks.classList.toggle('active');
@@ -169,6 +170,7 @@
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
           icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
         });
       });
     });
