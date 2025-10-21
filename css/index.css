@@ -819,7 +819,7 @@ body.menu-open {
   }
   
   /* Further size reductions for small screens */
-  .hero { height: 320px; }
+  .hero { height: auto; }
   .intro, .ready-made, .share-experience, .finishing-touches, .creator { padding: 1rem 0.8rem; }
   .three-cards, .product-grid { padding: 1rem 0.5rem; }
   
